@@ -1,0 +1,246 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", sans-serif;
+}
+
+/* 关键：让body和html铺满整个视口高度 */
+html, body {
+    height: 100%;
+    background-color: #000000;
+    color: #fff;
+    overflow-x: hidden; /* 禁止横向滚动 */
+}
+
+/* 页面外层容器 - 核心：固定定位+铺满全屏 */
+.page-wrapper {
+    position: relative;
+    min-height: 100vh; /* 至少铺满视口高度 */
+    width: 100%;
+}
+
+/* 左侧装饰图片 - 修复定位逻辑 */
+.side-img-left {
+    position: fixed; /* 固定定位，跟随页面滚动 */
+    left: 0;
+    top: 0;
+    height: 100vh; /* 铺满整个视口高度 */
+    width: 349px; /* 图片宽度 */
+    z-index: 0; /* 低于内容层级 */
+    opacity: 0.6; /* 降低透明度，避免遮挡 */
+    /* 英雄联盟主题图片（可替换） */
+    background: url() no-repeat;
+    background-size: cover; /* 图片铺满容器 */
+    background-position: left; /* 图片居左显示 */
+}
+
+/* 右侧装饰图片 - 修复定位逻辑 */
+.side-img-right {
+    position: fixed; /* 固定定位，跟随页面滚动 */
+    right: 0;
+    top: 0;
+    height: 100vh; /* 铺满整个视口高度 */
+    width: 362px; /* 图片宽度 */
+    z-index: 0; /* 低于内容层级 */
+    opacity: 0.6; /* 降低透明度，避免遮挡 */
+    /* 英雄联盟主题图片（可替换） */
+    background: url() no-repeat;
+    background-size:cover; /* 图片铺满容器 */
+    background-position: right; /* 图片居右显示 */
+}
+
+/* 页面背景（保留，与侧边图叠加） */
+body {
+    background-image: url("../img/blg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 头部导航 */
+header {
+    background-color: rgba(18, 26, 46, 0.8);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 2px solid #c8aa6e;
+    position: relative;
+    z-index: 1; /* 确保在侧边图上方 */
+}
+
+header h1 {
+    color: #c8aa6e;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: #b8b8b8;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* 主要内容容器 */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1; /* 确保在侧边图上方 */
+}
+
+/* 游戏简介部分 */
+.intro {
+    background-color: rgba(18, 26, 46, 0.9);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #3a4666;
+}
+
+.intro h2 {
+    color: #c8aa6e;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    border-left: 4px solid #c8aa6e;
+    padding-left: 10px;
+}
+
+.intro p {
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* 跳转按钮区域样式 */
+.nav-buttons {
+    background-color: rgba(18, 26, 46, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #3a4666;
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+/* 按钮样式 */
+.nav-btn {
+    flex: 1;
+    padding: 12px 0;
+    background-color: #2a3866;
+    color: #c8aa6e;
+    border: 2px solid #c8aa6e;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 120px;
+}
+
+.nav-btn:hover {
+    background-color: #c8aa6e;
+    color: #121a2e;
+    transform: scale(1.02);
+}
+
+/* 英雄展示部分 */
+.heroes {
+    background-color: rgba(18, 26, 46, 0.9);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #3a4666;
+}
+
+.heroes h2 {
+    color: #c8aa6e;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-left: 4px solid #c8aa6e;
+    padding-left: 10px;
+}
+
+/* 英雄卡片布局 */
+.hero-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* 英雄卡片样式 */
+.hero-card {
+    background-color: #1e294e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.hero-card:hover {
+    transform: translateY(-5px);
+}
+
+.hero-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.hero-info {
+    padding: 15px;
+}
+
+.hero-info h3 {
+    color: #c8aa6e;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.hero-info p {
+    color: #b8b8b8;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(18, 26, 46, 0.8);
+    color: #b8b8b8;
+    margin-top: 30px;
+    border-top: 2px solid #c8aa6e;
+    position: relative;
+    z-index: 1; /* 确保在侧边图上方 */
+}
+
+/* 响应式适配 */
+@media (max-width: 1400px) {
+    /* 屏幕宽度小于1400px时，缩小侧边图宽度 */
+    .side-img-left, .side-img-right {
+        width: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    .intro h2, .heroes h2 {
+        font-size: 1.5rem;
+    }
+    .nav-btn {
+        padding: 10px 0;
+        font-size: 0.9rem;
+        min-width: 100px;
+    }
+    .nav-buttons {
+        flex-wrap: wrap;
+    }
+    /* 手机端隐藏侧边图片 */
+    .side-img-left, .side-img-right {
+        display: none;
+    }
+}
